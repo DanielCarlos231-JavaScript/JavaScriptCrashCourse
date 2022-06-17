@@ -170,17 +170,22 @@ animate();
 
 window.addEventListener('keydown',(event)=>{
     let jump = 20;
+    
     switch(event.key){
+        
         //player
         case 'd':
+        case 'D':    
             keys.d.pressed = true;
             player.lastkey = 'd'
             break
         case 'a':
+        case 'A':    
             keys.a.pressed = true;
             player.lastkey = 'a'
             break
         case 'w':
+        case 'W':
             player.velocity.y += -jump;
             break
         case ' ':
@@ -209,12 +214,15 @@ window.addEventListener('keydown',(event)=>{
 window.addEventListener('keyup',(event)=>{
     switch(event.key){
         case 'd':
+        case 'D':
             keys.d.pressed = false;
             break
         case 'a':
+        case 'A':
             keys.a.pressed = false;
             break
         case 'w':
+        case 'W':
             keys.w.pressed = false;
             player.lastkey = 'w'
             break
