@@ -144,18 +144,7 @@ function animate() {
         enemy.velocity.x = velocity;
     }
 
-    //detect for colition
-    /*
-    if(player.AttackBox.position.x + player.AttackBox.width >= enemy.position.x     &&
-       player.AttackBox.position.x <= enemy.position.x + enemy.width                &&
-       player.AttackBox.position.y + player.AttackBox.height >= enemy.position.y    &&
-       player.AttackBox.position.y <= enemy.position.y + enemy.height               &&
-       player.isAttacking) 
-        {   
-            player.isAttacking = false;
-            console.log('go');
-        }
-     */   
+    //detect for colition  
     if(rectangularCollision({
         rectangle1: player,
         rectangle2: enemy
