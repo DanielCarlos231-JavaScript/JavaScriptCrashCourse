@@ -1,5 +1,5 @@
 class Sprite {
-    constructor({position, imageSrc, scale = 1, frameMax = 1, offset = {x: 0, y: 0} }) {
+    constructor({position, imageSrc, scale = 1, frameMax = 1, offset = {x: 0, y: 0}}) {
         this.position = position;
         this.width = 50;
         this.height = 150; 
@@ -53,7 +53,8 @@ class Fighter extends Sprite {
         scale = 1, 
         frameMax = 1,
         offset = {x: 0, y: 0},
-        sprites
+        sprites,
+        attackBox = { offset: {}, width: undefined, height: undefined }
         }) {
         super({
             position,
@@ -72,9 +73,9 @@ class Fighter extends Sprite {
                 x: this.position.x,
                 y: this.position.y    
             },
-            offset,
-            width: 100,
-            height: 50
+            offset: attackBox.offset,
+            width: attackBox.width,
+            height: attackBox.height
         }
         this.color = color;
         this.isAttacking;
@@ -111,7 +112,25 @@ class Fighter extends Sprite {
 
         this.draw();
         this.animateFrames();
-        this.position.x += this.velocity.x; 
+        
+        this.AttackBox.position.x = this.position.x + this.AttackBox.offset.x;
+        this.AttackBox.position.y = this.position.y + this.AttackBox.offset.y;
+        
+        /*
+        Show attack field
+        c.fillRect( this.AttackBox.position.x,
+                    this.AttackBox.position.y,
+                    this.AttackBox.width,
+                    this.AttackBox.height)
+        
+        Show player/enemy field            
+        c.fillRect( this.position.x,
+            this.position.y,
+            this.width,
+            this.height)
+        */            
+        
+            this.position.x += this.velocity.x; 
         this.position.y += this.velocity.y;
 
         //gravity
@@ -124,9 +143,11 @@ class Fighter extends Sprite {
     attack() {
         this.switchSprite('attack1');    
         this.isAttacking = true;
+        /*
         setTimeout(() =>{
             this.isAttacking = false;
         },100);
+        */
     }
 
     switchSprite(sprite) {
@@ -143,6 +164,13 @@ class Fighter extends Sprite {
                     this.framesCurrent = 0;
                 }
                 break; 
+            case 'runLeft':
+                if (this.image !== this.sprites.runLeft.image) {
+                    this.image = this.sprites.runLeft.image;
+                    this.frameMax = this.sprites.runLeft.frameMax;
+                    this.framesCurrent = 0;
+                }
+                break;
             case 'run':
                 if (this.image !== this.sprites.run.image) {
                     this.image = this.sprites.run.image;
