@@ -1,13 +1,16 @@
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
         *{
-           box-sizing: border-box;
-
+            box-sizing: border-box;
+            font-family: 'Press Start 2P', cursive;
         }
     </style>
 </head>
@@ -27,16 +30,18 @@
             <!-- Player Health -->
             <div style="position: relative;
              width: 100% ;
-             height: 30px;
              display: flex;
              justify-content: flex-end;
+             border-top: 4px solid white;
+             border-left: 4px solid white;
+             border-bottom: 4px solid white;
             ">
-                <div style="background: yellow;
+                <div style="background: red;
                  height: 30px;
                  width: 100%;
                 "></div>
                 <div id="playerHealth" style="position: absolute;
-                 background: blue;
+                 background: #0D9488;
                  top: 0;
                  bottom: 0;
                  right: 0;
@@ -47,25 +52,29 @@
             <!-- Timer -->
             <div 
              id="timer"    
-             style="background: red;
-             width: 100px;
-             height: 100px;
+             style="background: black;
+             width: 50px;
+             height: 50px;
              flex-shrink: 0;
              display: flex;
              align-items: center;
              justify-content: center;
+             color: white;
+             border: 4px solid white;
             "> 10 </div>
             
             <!-- Enemy Health -->
             <div style="position: relative;
              width: 100% ;
-             height: 30px;
+             border-top: 4px solid white;
+             border-right: 4px solid white;
+             border-bottom: 4px solid white;
             ">
-                <div style="background: yellow;
+                <div style="background: red;
                     height: 30px;
                     "></div>
                     <div id="enemyHealth" style="position: absolute;
-                    background: blue;
+                    background: #0D9488;
                     top: 0;
                     bottom: 0;
                     right: 0;
@@ -88,6 +97,8 @@
                 "> Tie </div>
         <canvas></canvas>
     </div>
+    <!-- Link for gsap cnd: https://cdnjs.com/libraries/gsap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js" integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/utils.js"></script>
     <script src="js/Classes.js"></script>
     <script src="Index.js"></script>
